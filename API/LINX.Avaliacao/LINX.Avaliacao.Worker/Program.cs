@@ -21,7 +21,7 @@ namespace LINX.Avaliacao.Workers
         Host.CreateDefaultBuilder(args)
             .ConfigureServices((hostContext, services) =>
             {
-              services.AddHostedService<Worker>();
+              services.AddHostedService<WorkerMail>();
 
               services.AddTransient<IBalancoService, BalancoService>();
             });

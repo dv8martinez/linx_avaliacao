@@ -7,6 +7,10 @@ namespace LINX.Avaliacao.Domain.Entities
 {
   public class Balanco: EntityBase  {
 
+    public Balanco()
+    {
+
+    }
     public Balanco(string descricao, DateTime data, decimal valor, Guid tipoId, TipoBalanco tipo)
     {
       Descricao = descricao;

@@ -23,7 +23,7 @@ namespace LINX.Avaliacao.Application
              .UseWindowsService()
                 .ConfigureServices((hostBuilderContext, services) =>
                 {
-                  services.AddHostedService<Worker>();
+                  //services.AddHostedService<WorkerMail>();
                 })
             .ConfigureWebHostDefaults(webBuilder =>
             {

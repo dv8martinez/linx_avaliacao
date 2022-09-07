@@ -34,7 +34,11 @@ namespace LINX.Avaliacao.Application
     public void ConfigureServices(IServiceCollection services)
     {
 
+      services.AddMvc();
+      services.AddMvcCore();
       services.AddControllers();
+      services.AddCors();
+      services.AddOptions();
       services.AddSwaggerGen(c =>
       {
         c.SwaggerDoc("v1", new OpenApiInfo { Title = "LINX.Avaliacao.Application", Version = "v1" });
@@ -50,7 +54,14 @@ namespace LINX.Avaliacao.Application
       services.AddControllers().AddNewtonsoftJson(x =>
             x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-      services.AddHostedService<Worker>();
+
+      services.AddCors(options =>
+      {
+        options.AddPolicy("AllowAll",
+                  builder => builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod());
+      });
+
+      //services.AddHostedService<WorkerMail>();
     }
 
     
@@ -69,6 +80,10 @@ namespace LINX.Avaliacao.Application
       app.UseRouting();
 
       app.UseAuthorization();
+      app.UseCors(x => x
+       .AllowAnyOrigin()
+       .AllowAnyMethod()
+       .AllowAnyHeader());
 
       app.UseEndpoints(endpoints =>
       {

@@ -65,6 +65,7 @@ namespace LINX.Avaliacao.Infra.Balancos
       {
         var result = await _context.Balancos
                              .Where(b => b.Data == (date ?? b.Data))
+                             .OrderBy(b => b.Data)
                             .AsNoTracking()
                             .Include(b => b.Tipo)
                             .ToListAsync();

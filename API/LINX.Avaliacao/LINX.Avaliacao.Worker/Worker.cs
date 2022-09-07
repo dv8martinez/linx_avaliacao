@@ -11,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace LINX.Avaliacao.Workers
 {
-  public class Worker : BackgroundService
+  public class WorkerMail : BackgroundService
   {
-    private readonly ILogger<Worker> _logger;    
+    private readonly ILogger<WorkerMail> _logger;    
     private readonly IServiceScopeFactory _scope;
     private Timer _timer;
     private int _reloadTime = 0;
     private int executionCount = 0;
 
-    public Worker(ILogger<Worker> logger, IServiceScopeFactory scope)
+    public WorkerMail(ILogger<WorkerMail> logger, IServiceScopeFactory scope)
     {
       _logger = logger;
       
