@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-LINX.Avaliacao.Worker-0A1E85DC-B5DF-4BB4-A3ED-5A883B03CDBC</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LINX.Avaliacao.Domain\LINX.Avaliacao.Domain.csproj" />
+    <ProjectReference Include="..\LINX.Avaliacao.Infra\LINX.Avaliacao.Infra.csproj" />
+    <ProjectReference Include="..\LINX.Avaliacao.Service\LINX.Avaliacao.Service.csproj" />
+  </ItemGroup>
+</Project>
